@@ -7,7 +7,7 @@ import math
 import imageio
 
 # Locating the image. If the image is not same then change to relative address.
-usedImage = '../2.jpg'
+usedImage = '../../Images/2.jpg'
 
 # Opening the image into an array
 img = array(Image.open(usedImage).convert("L"))
@@ -28,7 +28,7 @@ gaussian = signal.convolve(img, kernel, mode='same')
 # print (gaussian)
 
 # Saving the array with the blurred image as a JPG image
-imageio.imwrite('smooth.jpeg', gaussian)
+imageio.imwrite('./Outputs/smooth.jpeg', gaussian)
 # cv2.imshow('smooth.jpeg', gaussian) # This statement does not work btw
 
 # Kernel for Sobel X (using horizontal transformation)
@@ -74,10 +74,10 @@ imYX = signal.convolve(gaussian, kernelYX, mode='same')
 # print (imYX)
 
 # Saving the arrays created as JPG images
-imageio.imwrite('imX.jpeg', imX)
-imageio.imwrite('imX.jpeg', imX)
-imageio.imwrite('imXY.jpeg', imXY)
-imageio.imwrite('imYX.jpeg', imYX)
+imageio.imwrite('./Outputs/imX.jpeg', imX)
+imageio.imwrite('./Outputs/imX.jpeg', imX)
+imageio.imwrite('./Outputs/imXY.jpeg', imXY)
+imageio.imwrite('./Outputs/imYX.jpeg', imYX)
 '''cv2.imshow('imX.jpeg', imX)
 cv2.imshow('imY.jpeg', imY)
 cv2.imshow('imXY.jpeg', imXY)
@@ -92,7 +92,7 @@ imFinal = sqrt(imX*imX + imY*imY + imXY*imXY + imYX*imYX)
 # print (imFinal)
 
 # Saving the final canny edge detection image as a JPG image
-imageio.imwrite('canny.jpeg', imFinal)
+imageio.imwrite('./Outputs/canny.jpeg', imFinal)
 # cv2.imshow('canny.jpeg', imFinal)
 
 print ('Finished Canny edge detection')
