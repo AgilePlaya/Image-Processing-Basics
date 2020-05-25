@@ -1,0 +1,9 @@
+opencv-python,
+numpy,
+matplotlib,
+scipy,
+pillow,
+imageio,
+PySide2,
+scikit-image,
+
