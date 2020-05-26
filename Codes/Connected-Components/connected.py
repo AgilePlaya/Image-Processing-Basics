@@ -36,7 +36,7 @@ def drawComponents(image, adj, block_size):
     
     img = np.zeros(image.shape)
     #print (img.shape)
-    '''
+    
     for r in range(0, img.shape[0] - block_w, block_h):
         for c in range(0, img.shape[1] - block_w, block_h):
             for i in range(len(comp)):
@@ -53,14 +53,14 @@ def drawComponents(image, adj, block_size):
                 r = (k*block_size + i) % (br*block_size)
                 
                 img[c][r] = comp[k][j][i]
-    '''
-    #cv2.imshow('Test Image', img)
     
-    image = image.astype('uint8')
-    nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(image, adj)
-    label_hue = (107*output%np.max(output)).astype(np.uint8)
+    cv2.imshow('Test Image', img)
     
-    #label_hue = (107*img%np.max(img)).astype(np.uint8)
+    #image = image.astype('uint8')
+    #nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(image, adj)
+    #label_hue = (107*output%np.max(output)).astype(np.uint8)
+    
+    label_hue = (107*img%np.max(img)).astype(np.uint8)
     blank_ch = 255*np.ones_like(label_hue)
     labeled_img = cv2.merge([label_hue, blank_ch, blank_ch])
 
@@ -141,8 +141,8 @@ img2 = cv2.cvtColor(img2.astype(np.uint8), cv2.COLOR_RGB2HSV)
 
 for i in range(img2.shape[0]):
     for j in range(img2.shape[1]):
-        img4[i][j][0] = (img2[i][j][0]*4 + cvt[i][j][1]*1)//5       # HUE
-        img4[i][j][1] = (img2[i][j][1]*3 + cvt[i][j][1]*7)//10      # SATURATION
+        img4[i][j][0] = (img2[i][j][0]*9 + cvt[i][j][1]*1)//10       # HUE
+        img4[i][j][1] = (img2[i][j][1]*2 + cvt[i][j][1]*8)//10      # SATURATION
         img4[i][j][2] = cvt[i][j][2]                                # LIGHT VALUE
         
         if img2[i][j][0] == 0:
