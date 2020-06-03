@@ -6,20 +6,6 @@ import numpy
 import math
 import imageio
 
-##############################################################
-#               Modified Canny.py
-##############################################################
-#   
-#   The original canny in the master brach has a major
-#   flaw , in that it is actually only sobel edge detector
-#   and not really canny edge detector. The new and improved
-#   canny edge dectector will be merged into the master 
-#   branch afer it has been fixed, revamped and thoroughly
-#   improved.
-#   
-
-
-
 def normalize(image):
 
     mi = 255
